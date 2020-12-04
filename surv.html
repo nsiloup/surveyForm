@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&display=swap');
+
+/* Custom variables*/
+:root{
+  --bkg-color: linear-gradient(-45deg, hsla(222, 44%, 49%, 0.8) 0%, hsla(207, 44%, 49%, 0.8) 100%);
+  --form-bg:linear-gradient(-115deg, hsla(207, 44%, 15%, 0.6), hsla(222, 44%, 15%, 0.6));
+
+  --rectFields-anim1:linear-gradient(-25deg, hsla(208, 100%, 30%, 0.702), #48657Eb3, #48657Eb3, #48657Eb3, #48657Eb3, #48657Eb3, #48657Eb3, #48657Eb3) ;
+  --rectFields-anim2:linear-gradient(-25deg, #48657Eb3, hsla(208, 100%, 40%, 0.702), #48657Eb3, #48657Eb3, #48657Eb3, #48657Eb3, #48657Eb3, #48657Eb3) ;
+  --rectFields-anim3:linear-gradient(-25deg, #48657Eb3, #48657Eb3, hsla(208, 100%, 45%, 0.702), #48657Eb3, #48657Eb3, #48657Eb3, #48657Eb3, #48657Eb3) ;
+  --rectFields-anim4:linear-gradient(-25deg, #48657Eb3, #48657Eb3, #48657Eb3, hsla(208, 100%, 40%, 0.702), #48657Eb3, #48657Eb3, #48657Eb3, #48657Eb3) ;
+  --rectFields-anim5:linear-gradient(-25deg, #48657Eb3, #48657Eb3, #48657Eb3, #48657Eb3, hsla(208, 100%, 30%, 0.702), #48657Eb3, #48657Eb3, #48657Eb3) ;
+  --rectFields-anim6:linear-gradient(-25deg, #48657Eb3, #48657Eb3, #48657Eb3, #48657Eb3, #48657Eb3, hsla(208, 100%, 25%, 0.702), #48657Eb3, #48657Eb3) ;
+  --rectFields-anim7:linear-gradient(-25deg, #48657Eb3, #48657Eb3, #48657Eb3, #48657Eb3, #48657Eb3, #48657Eb3, hsla(208, 100%, 20%, 0.702), #48657Eb3) ;
+  --rectFields-anim8:linear-gradient(-25deg, #48657Eb3, #48657Eb3, #48657Eb3, #48657Eb3, #48657Eb3, #48657Eb3, #48657Eb3, hsla(208, 100%, 15%, 0.702));
+
+  --sub-button: #b44682;
+}
+/* Custom variables End*/
+
+/* GLOBAL STYLING */
+*,
+*::before{
+  box-sizing: border-box;
+  color:#fff;
+  text-transform: capitalize;
+  outline: none;
+}
+/* GLOBAL STYLING END */
+
+/* body */
+body::before{
+  content:"";
+  width: 100%;
+  height:100%;
+  top:0;
+  bottom: 0;
+  left:0;
+  right:0;
+  position: fixed;
+  background: linear-gradient(-45deg, hsla(222, 44%, 49%, 0.8) 0%, hsla(207, 44%, 49%, 0.8) 100%);
+  background-image: var(--bkg-color), url(man.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -5;
+}
+body{
+  content:"";
+  height:100%;
+  position: relative;
+  overflow: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow:auto;
+}
+/* body END */
+
+/* body > main */
+  main{
+    width:auto;
+    min-width:60vw;
+    display:flex;
+    flex-direction: column;
+    --gap:5%;
+
+  }
+  main > * {
+    margin: 0% 0% calc(var(--gap));
+
+  }
+    /* ...> main > my-header */
+    .my-header{
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      animation-name: description;
+      animation-duration: 3s;
+      animation-fill-mode: forwards;
+
+    }
+      .my-description{
+        animation-name: description;
+        animation-duration: 3s;
+        animation-fill-mode: forwards;
+      
+      }
+      hr{
+        width: 100%;
+        border: 2px dashed hsl(327, 44%, 60%);
+        animation-name: horizontal-line;
+        animation-duration: 4s;
+        animation-fill-mode: forwards;
+
+      }
+
+        @keyframes description{
+          0%{
+            font-size: 0rem;
+          }
+          100%{
+            font-size: initial;
+          }
+        }
+        @keyframes horizontal-line {
+          0%{
+            width:5%;
+          }
+          100%{
+            width:100%;
+          }
+        }
+    /* ...> main > my-header END*/
+
+    /* ...> main > form  */
+    form{
+      width:100%;
+      background: var(--form-bg);
+      /* padding:2% 5%; */
+
+
+    }
+      /* ...>form > fieldset */
+      fieldset{
+        width:calc(100% - 0.5%);
+      }
+      .rect-fields{
+          width:calc(100% - 0.5%);
+          padding:2%;
+          box-shadow:1vmin 1vmin  1.5vmin rgba(0, 0, 0, 0.5);
+          animation-name: rectFields-anim;
+          animation-duration: 5s;
+          animation-iteration-count: infinite;
+        }
+          .rect-fields::placeholder{
+            color: hsl(0, 0%, 80%);
+          }
+          .rect-fields:hover{
+            animation-play-state: paused;
+          }
+          
+          @keyframes rectFields-anim{
+            0%{
+              background: var(--rectFields-anim1);
+              animation-timing-function: ease-out;
+            }
+            12.5%{
+              background: var(--rectFields-anim2);
+              animation-timing-function: ease-in-out;
+            }
+            25%{
+              background: var(--rectFields-anim3);
+              animation-timing-function: ease-in-out;
+          
+            }
+            37.5%{
+              background: var(--rectFields-anim4);
+              animation-timing-function: ease-in-out;
+          
+            }
+            50%{
+              background: var(--rectFields-anim5);
+              animation-timing-function: ease-in-out;
+          
+            }
+            62.5%{
+              background: var(--rectFields-anim6);
+              animation-timing-function: ease-in-out;
+          
+            }
+            75%{
+              background: var(--rectFields-anim7);
+              animation-timing-function: ease-in-out;
+          
+            }
+            87.5%{
+              background: var(--rectFields-anim8);
+              animation-timing-function: ease-in-out;
+          
+            }
+            100%{
+              background: var(--rectFields-anim1);
+              animation-timing-function: ease-in;
+            }
+          }
+          
+          .about-you{
+            display:calc(100% - 0.5%);
+          }
+          .tell-us{
+            display:calc(100% - 0.5%);
+            --tellUs-Gap:10%;
+
+          }
+          .tell-us > * {
+            margin-top: var(--tellUs-Gap);
+          }
+          .telUs-1st{
+            margin-top:  0;
+
+          }
+          .tell-us .rect-fields{
+            padding:0;
+          }
+          .box{
+            width:100%;
+            background-color: transparent;
+            padding:2%;
+            margin: 0;
+            outline: none;
+          }
+
+          select option{
+            background:#2d4e73;
+            color: #fff;
+            /* padding: 1.5vmin; */
+            width:100%;
+            /* height: 8vmin; */
+            border: none;
+            padding:1.5vmin;
+            box-shadow:1vmin 1vmin  1.5vmin rgba(0, 0, 0, 0.5);
+          }
+          select:invalid{
+            color: rgb(223, 219, 219);
+          
+          }
+
+          .tell-us label{
+            width:100%;
+            display: flex;
+          }
+          .tell-us input, p{
+            display:block;
+          }
+
+          .any-question{
+            display:calc(100% - 0.5%);
+            text-align: left;
+          }
+          textarea::placeholder{
+            color: #fff;
+          }
+          .any-question{
+            width:100%;
+            min-width:60vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+          }
+          .any-question .rect-fields{
+            height: auto;
+            min-height: calc(100px + 5vw);
+          }
+      /* ...>form > fieldset END*/
+      /* ...>form > sub-set */
+      .sub-set{
+        width:100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        --sub-gap:3%;
+      }
+      .sub-set > *{
+        margin: var(--sub-gap) ;
+      }
+        .sub-button{
+          width:25vw;
+          min-width: 120px;
+          background: var(--sub-button);
+          font-size:1em;
+          display: inline;
+          padding: 5%;
+          border-radius: 10%;
+
+        }
+        .reset-button{
+          width:15vw;
+          min-width: 120px;
+          font-size:1em;
+          background:#0088ff;
+          display: inline;
+          padding: 5%;
+          border-radius: 10%;
+        }
+      .sub-button:hover{
+        transform: scale(1.05, 1.08);
+        background:  hsl(327, 44%, 60%);
+        max-width: 100%;
+      }
+      .reset-button:hover{
+        transform: scale(1.2, 1.2);
+      }
+        
+        
+      /* ...>form > sub-set END*/
+    /*...> main > form  END*/
+
+    /*...> main > my-foot */
+    .my-footer{
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 10%;
+    }
+    .my-footer p{
+      text-align: center;
+      color:#ffffff;
+    }
+    .linkedin{
+      display: inline-block;
+      grid-area: linkedin;
+      width:50px;
+      height: auto;
+      opacity: 0.7;
+      animation-name: social-but;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      animation-delay: 0ms;
+    }
+    .twitter{
+      display: inline-block;
+      grid-area: twitter;
+      width:50px;
+      height: auto;
+      opacity: 0.7;
+      animation-name: social-but;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      animation-delay: 500ms;
+    }
+    .codepen{
+      display: inline-block;
+      grid-area: codepen;
+      width:50px;
+      height: auto;
+      opacity: 0.7;
+      animation-name: social-but;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      animation-delay: 700ms;
+    }
+    .github{
+      display: inline-block;
+      grid-area: github;
+      width:50px;
+      height: auto;
+      opacity: 0.7;
+      animation-name: social-but;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      animation-delay: 900ms;
+    }
+    
+    @keyframes social-but{
+      0%{
+        transform: scale(0.8, 0.8);
+        animation-timing-function: ease-out;
+      }
+      50%{
+        transform: scale(1, 1);
+        animation-timing-function: ease-in-out;
+      }
+      100%{
+        transform: scale(0.8, 0.8);
+        animation-timing-function: ease-in;
+      }
+    }
+    .my-footer img{
+      width:90%;
+      min-width:auto;
+      height:auto;
+      max-width: 90%;
+      outline: none;
+    }
+    .linkedin:hover{
+      animation-play-state: paused;
+    }
+    .twitter:hover{
+      animation-play-state: paused;
+    }
+    .codepen:hover{
+      animation-play-state: paused;
+    }
+    .github:hover{
+      animation-play-state: paused;
+    }
+    
+    .subject img{
+      color: #fff;
+      background: #0088ffb3;
+      border-radius: 50%;
+    }
+    
+    /*...> main > my-foot  END*/
+  /*body > main END */
+/*body END */
+  </style>
+    <head>
+    
+        <title class="my-title">
+            PRO SPORT survey
+        </title>
+    </head>
+    <body>
+        <main class="subject">
+            <section class="my-header">
+                <h1 id="title" class="my-title">PRO SPORT CARE</h1> <hr class="hr-top">
+                <p id="description" class="my-description">
+                    Welcome !<br> Thanks for taking some time before joining us.
+                </p>
+                <hr class="hr-bottom">
+            </section>
+    
+    
+            <form id="survey-form" class="my-form">
+                <fieldset class="about-you">
+                    <legend><h3>About you</h3></legend>
+                    <label for="name"  id="name-label"><h3>Name</h3>
+                        <input id="name" type="text" placeholder="Enter Your Name" required class="rect-fields your-name"/>
+                    </label>
+    
+                    <label for="email" id="email-label"><h3>Email</h3>
+                        <input id="email" type="email" placeholder="Enter Your E-mail" required class="rect-fields your-mail"/>
+                    </label>
+                    
+
+
+                    <label id="number-label" for="number"><span><h3>Age ( 8 to 85 )</h3></span>
+                        <input id="number" type="number" min="8" max="85" placeholder="Your Age" required class="rect-fields your-age"/>                       
+                    </label>
+                </fieldset>
+    
+                <fieldset class="tell-us">
+                    <legend><h3>tell us</h3></legend>
+                    <div class="telUs-1st">
+                        <h3>how did you hear about us ?</h3>
+                        <div class="rect-fields" >
+                            <select class="box" id="dropdown" required>
+                                <option disabled selected value="" class="dis-sel"  >Select Your Source please</option>
+                                <option>from social media</option>
+                                <option>from friends / family</option>
+                                <option>from engine searching</option>
+                                <option>through ads</option>
+                                <option>other</option>
+                                <option>i can't tell</option>
+                            </select>
+                        </div>
+                    </div>
+    
+                    <section>
+                        <h3>how often do you go to gym?</h3>
+                        <div class="but-contain">
+                            <label for="obs">
+                                <input id="obs"
+                                    type="radio"
+                                    value="obs"
+                                    name="frequency" />
+                                5 - 7 days a week
+                            </label><br>
+                            <label for="adv">
+                                <input id="adv"
+                                    type="radio"
+                                    value="adv"
+                                    name="frequency" checked />
+                                3 - 5 days a week
+                            </label><br>
+        
+                            <label for="avrg">
+                                <input id="avrg"
+                                    type="radio"
+                                    value="avrg"
+                                    name="frequency" />
+                                1 - 3 days a week
+                            </label><br>
+        
+                            <label for="newbie">
+                                <input id="newbie"
+                                    type="radio"
+                                    value="newbie"
+                                    name="frequency" />
+                                Never
+                            </label>
+                            </section>
+                        </div>
+                    </section>
+    
+                    <section>
+                        <h3>what are your main goals about sport ?</h3>
+                        <div class="but-contain">
+
+                            <label for="pro">
+                                <input id="pro"
+                                    type="checkbox"
+                                    value="pro"
+                                    name="outcome"
+                                    checked />
+                                becoming proffessionnal
+                            </label><br>
+        
+                            <label for="health">
+                                <input id="health"
+                                    type="checkbox"
+                                    value="health"
+                                    name="outcome" />
+                                just for my health
+                            </label><br>
+        
+                            <label for="fit">
+                                <input id="fit"
+                                    type="checkbox"
+                                    value="fit"
+                                    name="outcome" />
+                                For fitness/bodybuilding
+                            </label><br>
+        
+                            <label for="special">
+                                <input id="special"
+                                    type="checkbox"
+                                    value="special"
+                                    name="outcome" />
+                                for a special/pro event
+                            </label>
+                        </div>
+                    </section>
+                </fieldset>
+    
+    
+                <fieldset class="any-question">
+                    <legend>
+                        <h3>any question ?</h3>
+                    </legend>
+                    
+                    
+                    <textarea id="question"
+                    class="rect-fields txt-quest"
+                    name="question"
+                    placeholder="Enter your question here..."></textarea>
+
+
+                </fieldset>
+                <div class="sub-set">
+                        <label for="submit">
+                            <input type="submit" 
+                                id="submit"
+                                name="submit"
+                                class="sub-button"
+                                value=" Submit NOW "/>
+                        </label>
+
+                    <label for="reset" >
+                        <input type="reset" value=" Clear " class="reset-button">
+                    </label>
+                </div>
+                
+                <div class="my-footer">
+                    <p>&copy;by Perseverance NSILOU<br>
+                        plain HTML + CSS Projects<br>
+                        Connect With Me On :</p>
+                        <div class="icons">
+                            <a href="https://www.linkedin.com/in/nsiloup/" target="_blank" class="linkedin"><img src="https://www.flaticon.com/svg/static/icons/svg/145/145807.svg" alt="linkedin"></a>
+                            <a href="https://twitter.com/nsiloubp" target="_blank" class="twitter"><img src="https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/twitter_circle-512.png" alt="twitter"></a>
+                            <a href="https://codepen.io/nsiloup" target="_blank" class="codepen"><img src="https://i0.wp.com/blog.codepen.io/wp-content/uploads/2012/06/Button-White-Small.png?resize=125%2C125&ssl=1" alt="codepen"></a>
+                            <a href="https://github.com/nsiloup" target="_blank" class="github"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="github"></a>
+                        </div>
+                </div>
+    
+            </form>
+
+        </main>
+    </body>
+    </html>
